@@ -12,15 +12,16 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=15" };
 static const char dmenufont[]       = "monospace:size=15";
-static const char col_pink[]       = "#a45a59";
-static const char col_brown[]       = "#241312";
-static const char col_gray3[]       = "#39140a";
-static const char col_gray4[]       = "#382726";
-static const char col_white[]        = "#c2c4d2";
-static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_pink, col_brown },
-	[SchemeSel]  = { col_gray4, col_white,  col_pink  },
+static const char d_fg[]      	= "#6e6a86";
+static const char d_bg[]		= "#26233a";
+static const char d_border[]	= "#26233a";
+static const char s_fg[]		= "#26233a";
+static const char s_bg[]    	= "#c4a7e7";
+static const char s_border[]	= "#c4a7e7";
+static const char *colors[][3]	= {
+	/*               fg         bg			border   */
+	[SchemeNorm] = { d_fg,		d_bg,		d_border },
+	[SchemeSel]  = { s_fg,		s_bg,		s_border },
 };
 
 /* tagging */
@@ -42,7 +43,7 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 static const int attachbelow = 1;    /* 1 means attach after the currently active window */
 
@@ -66,7 +67,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = 	{ "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_pink, "-nf", col_gray3, "-sb", col_white, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = 	{ "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", d_bg, "-nf", d_fg, "-sb", s_bg, "-sf", s_fg, NULL };
 static const char *termcmd[]  = 	{ "kitty", "/home/radish", NULL };
 static const char *customcmd[] = 	{ "firefox", NULL };
 
