@@ -64,7 +64,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_pink, "-nf", col_gray3, "-sb", col_white, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "kitty", "~", NULL };
+static const char *termcmd[]  = { "kitty", "/home/radish", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -77,15 +77,15 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_j,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,					    XK_o,      incrogaps,      {.i = +10 } },
-	{ MODKEY|ShiftMask,			    XK_o,      incrogaps,      {.i = -10 } },
-	{ MODKEY,						XK_i,      incrigaps,      {.i = +10 } },
-	{ MODKEY|ShiftMask, 			XK_i,      incrigaps,      {.i = -10 } },
-	{ MODKEY,              			XK_g,      togglegaps,     {0} },
-	{ MODKEY|ShiftMask,    			XK_g,      defaultgaps,    {0} },
+	{ MODKEY,			XK_o,      incrogaps,      {.i = +10 } },
+	{ MODKEY|ShiftMask,		XK_o,      incrogaps,      {.i = -10 } },
+	{ MODKEY,			XK_i,      incrigaps,      {.i = +10 } },
+	{ MODKEY|ShiftMask,		XK_i,      incrigaps,      {.i = -10 } },
+	{ MODKEY,			XK_g,      togglegaps,     {0} },
+	{ MODKEY|ShiftMask,		XK_g,      defaultgaps,    {0} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY,           			XK_q,      killclient,     {0} },
+	{ MODKEY,         		XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
