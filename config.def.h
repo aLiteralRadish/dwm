@@ -69,14 +69,13 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = 	{ "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", d_bg, "-nf", d_fg, "-sb", s_bg, "-sf", s_fg, NULL };
 static const char *termcmd[]  = 	{ "kitty", "/home/radish", NULL };
-static const char *customcmd[] = 	{ "firefox", NULL };
-static const char *screenshot[] =	{ "", NULL };
+static const char *screenshot[] =	{ "/home/radish/.scripts/ss.sh", NULL };
+static const char *screenshot_selection[] =	{ "/home/radish/.scripts/ss-sel.sh", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,						XK_v,	   spawn,		   {.v = customcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -95,6 +94,8 @@ static const Key keys[] = {
 	{ MODKEY,         				XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      togglefullscr,  {0} },
+	{ MODKEY,						XK_s,	   spawn,		   {.v = screenshot_selection} },
+	{ MODKEY|ShiftMask,				XK_s,	   spawn,		   {.v = screenshot} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
