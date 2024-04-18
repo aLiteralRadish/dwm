@@ -47,10 +47,11 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 static const int attachbelow = 1;    /* 1 means attach after the currently active window */
 
+#include "gaplessgrid.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "#",      gaplessgrid},    /* no layout function means floating behavior */
 	{ "󰊓",      monocle },
 };
 
@@ -71,6 +72,7 @@ static const char *dmenucmd[] = 	{ "dmenu_run", "-m", dmenumon, "-fn", dmenufont
 static const char *termcmd[]  = 	{ "kitty", "/home/radish", NULL };
 static const char *screenshot[] =	{ "/home/radish/.scripts/ss.sh", NULL };
 static const char *screenshot_selection[] =	{ "/home/radish/.scripts/ss-sel.sh", NULL };
+static const char *killcmd[] = 		{ "/home/radish/.scripts/kill.sh", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -93,9 +95,11 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,         				XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY|ShiftMask,				XK_t,	   setlayout,	   {.v = &layouts[1]} },
 	{ MODKEY,                       XK_f,      togglefullscr,  {0} },
 	{ MODKEY,						XK_s,	   spawn,		   {.v = screenshot_selection} },
 	{ MODKEY|ShiftMask,				XK_s,	   spawn,		   {.v = screenshot} },
+	{ MODKEY|ShiftMask,				XK_q,	   spawn,		   {.v = killcmd} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
