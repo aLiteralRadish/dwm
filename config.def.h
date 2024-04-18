@@ -70,6 +70,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = 	{ "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", d_bg, "-nf", d_fg, "-sb", s_bg, "-sf", s_fg, NULL };
 static const char *termcmd[]  = 	{ "kitty", "/home/radish", NULL };
 static const char *customcmd[] = 	{ "firefox", NULL };
+static const char *screenshot[] =	{ "", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
