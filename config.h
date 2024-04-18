@@ -49,6 +49,7 @@ static const Layout layouts[] = {
 	{ "",      tile },    /* first entry is default */
 	{ "#",      gaplessgrid},    /* no layout function means floating behavior */
 	{ "󰊓",      monocle },
+	{ NULL,		NULL },
 };
 
 /* key definitions */
@@ -81,6 +82,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_j,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY,						XK_t,	   cyclelayout,	   {.i = +1} },
 //	{ MODKEY,						XK_o,      incrogaps,      {.i = +10 } },
 //	{ MODKEY|ShiftMask,				XK_o,      incrogaps,      {.i = -10 } },
 //	{ MODKEY,						XK_i,      incrigaps,      {.i = +10 } },
@@ -90,8 +92,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,         				XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY|ShiftMask,				XK_t,	   setlayout,	   {.v = &layouts[1]} },
+//	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
+//	{ MODKEY|ShiftMask,				XK_t,	   setlayout,	   {.v = &layouts[1]} },
 	{ MODKEY,                       XK_f,      togglefullscr,  {0} },
 	{ MODKEY,						XK_s,	   spawn,		   {.v = screenshot_selection} },
 	{ MODKEY|ShiftMask,				XK_s,	   spawn,		   {.v = screenshot} },
