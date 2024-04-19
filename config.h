@@ -63,6 +63,7 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
+#include <X11/XF86keysym.h>
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = 	{ "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", d_bg, "-nf", d_fg, "-sb", s_bg, "-sf", s_fg, NULL };
@@ -70,6 +71,11 @@ static const char *termcmd[]  = 	{ "kitty", "/home/radish", NULL };
 static const char *screenshot[] =	{ "/home/radish/.scripts/ss.sh", NULL };
 static const char *screenshot_selection[] =	{ "/home/radish/.scripts/ss-sel.sh", NULL };
 static const char *killcmd[] = 		{ "/home/radish/.scripts/kill.sh", NULL };
+static const char *volupcmd[] =		{ "pactl", "set-sink-volume", "0", "+5%", NULL };
+static const char *voldowncmd[] =	{ "pactl", "set-sink-volume", "0", "-5%", NULL };
+static const char *volmutecmd[] =	{ "pactl", "set-sink-mute", "0", "toggle", NULL };
+static const char *brupcmd[] =		{ "brightnessctl", "s", "10%+", NULL };
+static const char *brdowncmd[] =	{ "brightnessctl", "s", "10%-", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -90,6 +96,11 @@ static const Key keys[] = {
 //	{ MODKEY|ShiftMask,				XK_i,      incrigaps,      {.i = -10 } },
 //	{ MODKEY,						XK_g,      togglegaps,     {0} },
 //	{ MODKEY|ShiftMask,				XK_g,      defaultgaps,    {0} },
+	{ 0, XF86XK_AudioMute, spawn, {.v = volmutecmd} },
+	{ 0, XF86XK_AudioLowerVolume, spawn, {.v = voldowncmd} },
+	{ 0, XF86XK_AudioRaiseVolume, spawn, {.v = volupcmd} },
+	{ 0, XF86XK_MonBrightnessDown, spawn, {.v = brdowncmd} },
+	{ 0, XF86XK_MonBrightnessUp, spawn, {.v = brupcmd} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,         				XK_q,      killclient,     {0} },
