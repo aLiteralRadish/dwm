@@ -71,11 +71,11 @@ static const char *termcmd[]  = 	{ "kitty", "/home/radish", NULL };
 static const char *screenshot[] =	{ "/home/radish/.scripts/ss.sh", NULL };
 static const char *screenshot_selection[] =	{ "/home/radish/.scripts/ss-sel.sh", NULL };
 static const char *killcmd[] = 		{ "/home/radish/.scripts/kill.sh", NULL };
-static const char *volupcmd[] =		{ "pactl", "set-sink-volume", "0", "+5%", NULL };
-static const char *voldowncmd[] =	{ "pactl", "set-sink-volume", "0", "-5%", NULL };
-static const char *volmutecmd[] =	{ "pactl", "set-sink-mute", "0", "toggle", NULL };
-static const char *brupcmd[] =		{ "brightnessctl", "s", "10%+", NULL };
-static const char *brdowncmd[] =	{ "brightnessctl", "s", "10%-", NULL };
+static const char *volupcmd[] =		{ "/home/radish/.scripts/vol.sh", "+5%", NULL };
+static const char *voldowncmd[] =	{ "/home/radish/.scripts/vol.sh", "-5%", NULL };
+static const char *volmutecmd[] =	{ "/home/radish/.scripts/volmute.sh", NULL };
+static const char *brupcmd[] =		{ "/home/radish/.scripts/brightness.sh", "10%+", NULL };
+static const char *brdowncmd[] =		{ "/home/radish/.scripts/brightness.sh", "10%-", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -104,7 +104,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,         				XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[3]} },
+//	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[3]} },
 //	{ MODKEY|ShiftMask,				XK_t,	   setlayout,	   {.v = &layouts[1]} },
 	{ MODKEY,                       XK_f,      togglefullscr,  {0} },
 	{ MODKEY,						XK_s,	   spawn,		   {.v = screenshot_selection} },
