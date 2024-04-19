@@ -75,7 +75,7 @@ static const char *volupcmd[] =		{ "/home/radish/.scripts/vol.sh", "+5%", NULL }
 static const char *voldowncmd[] =	{ "/home/radish/.scripts/vol.sh", "-5%", NULL };
 static const char *volmutecmd[] =	{ "/home/radish/.scripts/volmute.sh", NULL };
 static const char *brupcmd[] =		{ "/home/radish/.scripts/brightness.sh", "10%+", NULL };
-static const char *brdowncmd[] =		{ "/home/radish/.scripts/brightness.sh", "10%-", NULL };
+static const char *brdowncmd[] =	{ "/home/radish/.scripts/brightness.sh", "10%-", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -90,22 +90,14 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,						XK_t,	   cyclelayout,	   {.i = +1} },
 	{ MODKEY|ShiftMask,				XK_t,	   cyclelayout,	   {.i = -1} },
-//	{ MODKEY,						XK_o,      incrogaps,      {.i = +10 } },
-//	{ MODKEY|ShiftMask,				XK_o,      incrogaps,      {.i = -10 } },
-//	{ MODKEY,						XK_i,      incrigaps,      {.i = +10 } },
-//	{ MODKEY|ShiftMask,				XK_i,      incrigaps,      {.i = -10 } },
-//	{ MODKEY,						XK_g,      togglegaps,     {0} },
-//	{ MODKEY|ShiftMask,				XK_g,      defaultgaps,    {0} },
-	{ 0, XF86XK_AudioMute, spawn, {.v = volmutecmd} },
-	{ 0, XF86XK_AudioLowerVolume, spawn, {.v = voldowncmd} },
-	{ 0, XF86XK_AudioRaiseVolume, spawn, {.v = volupcmd} },
-	{ 0, XF86XK_MonBrightnessDown, spawn, {.v = brdowncmd} },
-	{ 0, XF86XK_MonBrightnessUp, spawn, {.v = brupcmd} },
+	{ 0, XF86XK_AudioMute, 					   spawn, 		   {.v = volmutecmd} },
+	{ 0, XF86XK_AudioLowerVolume, 			   spawn, 		   {.v = voldowncmd} },
+	{ 0, XF86XK_AudioRaiseVolume, 			   spawn, 		   {.v = volupcmd} },
+	{ 0, XF86XK_MonBrightnessDown, 			   spawn, 		   {.v = brdowncmd} },
+	{ 0, XF86XK_MonBrightnessUp, 			   spawn, 		   {.v = brupcmd} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,         				XK_q,      killclient,     {0} },
-//	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[3]} },
-//	{ MODKEY|ShiftMask,				XK_t,	   setlayout,	   {.v = &layouts[1]} },
 	{ MODKEY,                       XK_f,      togglefullscr,  {0} },
 	{ MODKEY,						XK_s,	   spawn,		   {.v = screenshot_selection} },
 	{ MODKEY|ShiftMask,				XK_s,	   spawn,		   {.v = screenshot} },
