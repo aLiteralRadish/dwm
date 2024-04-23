@@ -6,8 +6,8 @@ static const unsigned int gappx 	= 20;
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=15" };
-static const char dmenufont[]       = "monospace:size=15";
+static const char *fonts[]          = { "FiraCode Mono:pixelsize=20:antialias=true:autohint=true" };
+static const char dmenufont[]       = "FiraCode Mono:pixelsize=20:antialias=true:autohint=true";
 static const char d_fg[]      	= "#6e6a86";
 static const char d_bg[]		= "#26233a";
 static const char d_border[]	= "#26233a";
@@ -70,7 +70,8 @@ static const char *dmenucmd[] = 	{ "dmenu_run", "-m", dmenumon, "-fn", dmenufont
 static const char *termcmd[]  = 	{ "kitty", "/home/radish", NULL };
 static const char *screenshot[] =	{ "/home/radish/.scripts/ss.sh", NULL };
 static const char *screenshot_selection[] =	{ "/home/radish/.scripts/ss-sel.sh", NULL };
-static const char *killcmd[] = 		{ "/home/radish/.scripts/kill.sh", NULL };
+static const char *killcmd[] = 		{ "/home/radish/.scripts/kill.sh", d_bg, d_fg, s_bg, s_fg, NULL };
+static const char *mediacmd[] = 	{ "/home/radish/.scripts/play-media.sh", d_bg, d_fg, s_bg, s_fg, NULL };
 static const char *volupcmd[] =		{ "/home/radish/.scripts/vol.sh", "+5%", NULL };
 static const char *voldowncmd[] =	{ "/home/radish/.scripts/vol.sh", "-5%", NULL };
 static const char *volmutecmd[] =	{ "/home/radish/.scripts/volmute.sh", NULL };
@@ -102,6 +103,7 @@ static const Key keys[] = {
 	{ MODKEY,						XK_s,	   spawn,		   {.v = screenshot_selection} },
 	{ MODKEY|ShiftMask,				XK_s,	   spawn,		   {.v = screenshot} },
 	{ MODKEY|ShiftMask,				XK_q,	   spawn,		   {.v = killcmd} },
+	{ MODKEY,					    XK_m,	   spawn,		   {.v = mediacmd} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
