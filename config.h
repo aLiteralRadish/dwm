@@ -78,6 +78,7 @@ static const char *volmutecmd[] =	{ "/home/radish/.scripts/volmute.sh", NULL };
 static const char *brupcmd[] =		{ "/home/radish/.scripts/brightness.sh", "10%+", NULL };
 static const char *brdowncmd[] =	{ "/home/radish/.scripts/brightness.sh", "10%-", NULL };
 static const char *lockcmd[] =		{ "i3lockmore", "-u", "--blur", "--lock-icon", "/home/radish/.wallpapers/lock-icon.png" };
+static const char *touchpadtoggle[]={ "/home/radish/.scripts/toggle-touchpad.sh" };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -105,6 +106,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,				XK_s,	   spawn,		   {.v = screenshot} },
 	{ MODKEY|ShiftMask,				XK_q,	   spawn,		   {.v = killcmd} },
 	{ MODKEY,					    XK_m,	   spawn,		   {.v = mediacmd} },
+	{ 0, XF86XK_Messenger, 					   spawn,		   {.v = touchpadtoggle} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
