@@ -48,7 +48,7 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "",      tile },    /* first entry is default */
 	{ "󰋁",      gaplessgrid},    /* no layout function means floating behavior */
-//	{ "󰊓",      monocle },
+	{ "󰊓",      monocle },
 	{ NULL,		NULL },
 };
 
@@ -75,10 +75,11 @@ static const char *mediacmd[] = 	{ "/home/radish/.scripts/play-media.sh", d_bg, 
 static const char *volupcmd[] =		{ "/home/radish/.scripts/vol.sh", "+5%", NULL };
 static const char *voldowncmd[] =	{ "/home/radish/.scripts/vol.sh", "-5%", NULL };
 static const char *volmutecmd[] =	{ "/home/radish/.scripts/volmute.sh", NULL };
-static const char *brupcmd[] =		{ "/home/radish/.scripts/brightness.sh", "10%+", NULL };
-static const char *brdowncmd[] =	{ "/home/radish/.scripts/brightness.sh", "10%-", NULL };
+static const char *brupcmd[] =		{ "/home/radish/.scripts/brightness.sh", "5%+", NULL };
+static const char *brdowncmd[] =	{ "/home/radish/.scripts/brightness.sh", "5%-", NULL };
 static const char *lockcmd[] =		{ "i3lockmore", "-u", "--blur", "--lock-icon", "/home/radish/.wallpapers/lock-icon.png" };
 static const char *touchpadtoggle[]={ "/home/radish/.scripts/toggle-touchpad.sh" };
+static const char *vpntoggle[] =    { "/home/radish/.scripts/toggle-vpn.sh" };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -105,8 +106,9 @@ static const Key keys[] = {
 	{ MODKEY,						XK_s,	   spawn,		   {.v = screenshot_selection} },
 	{ MODKEY|ShiftMask,				XK_s,	   spawn,		   {.v = screenshot} },
 	{ MODKEY|ShiftMask,				XK_q,	   spawn,		   {.v = killcmd} },
-	{ MODKEY,					    XK_m,	   spawn,		   {.v = mediacmd} },
+//	{ MODKEY,					    XK_m,	   setlayout,	   {.v = &layouts[2]} },
 	{ 0, XF86XK_Messenger, 					   spawn,		   {.v = touchpadtoggle} },
+	{ 0, XF86XK_Display,					   spawn,		   {.v = vpntoggle} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
