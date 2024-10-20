@@ -7,7 +7,7 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "FiraCode Mono:pixelsize=20:antialias=true:autohint=true" };
-static const char dmenufont[]       = "FiraCode Mono:pixelsize=20:antialias=true:autohint=true";
+static const char dmenufont[]       = "FiraCode Mono:antialias=true:autohint=true";
 static const char d_fg[]      	= "#6e6a86";
 static const char d_bg[]		= "#26233a";
 static const char d_border[]	= "#26233a";
@@ -66,7 +66,7 @@ static const Layout layouts[] = {
 #include <X11/XF86keysym.h>
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = 	{ "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", d_bg, "-nf", d_fg, "-sb", s_bg, "-sf", s_fg, NULL };
+static const char *dmenucmd[] = 	{ "dmenu_run", "-g", "3", "-l", "5", "-c", "-m", dmenumon, "-fn", dmenufont, "-nb", d_bg, "-nf", d_fg, "-sb", s_bg, "-sf", s_fg, NULL };
 static const char *termcmd[]  = 	{ "kitty", "/home/radish", NULL };
 static const char *screenshot[] =	{ "/home/radish/.scripts/ss.sh", NULL };
 static const char *screenshot_selection[] =	{ "/home/radish/.scripts/ss-sel.sh", NULL };
