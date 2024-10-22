@@ -50,6 +50,7 @@ static const Layout layouts[] = {
 	{ "",      tile },    /* first entry is default */
 	{ "󰋁",      gaplessgrid},    /* no layout function means floating behavior */
 	{ "󰊓",      monocle },
+	{ "",		centeredmaster },
 	{ NULL,		NULL },
 };
 
@@ -96,6 +97,7 @@ static const Key keys[] = {
 	{ MODKEY,						XK_t,	   setlayout,	   {.v = &layouts[0]} },
 	{ MODKEY,						XK_g,	   setlayout,	   {.v = &layouts[1]} },
 	{ MODKEY,					    XK_m,	   setlayout,	   {.v = &layouts[2]} },
+	{ MODKEY,						XK_c,	   setlayout,	   {.v = &layouts[3]} },
 	{ 0, XF86XK_AudioMute, 					   spawn, 		   {.v = volmutecmd} },
 	{ 0, XF86XK_AudioLowerVolume, 			   spawn, 		   {.v = voldowncmd} },
 	{ 0, XF86XK_AudioRaiseVolume, 			   spawn, 		   {.v = volupcmd} },
