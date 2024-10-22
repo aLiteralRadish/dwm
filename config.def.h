@@ -47,6 +47,7 @@ static const int attachbelow = 1;    /* 1 means attach after the currently activ
 #define FORCE_VSPLIT 1
 #include "nrowgrid.c"
 #include "fibonacci.c"
+#include "movestack.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "",      tile },    /* first entry is default */
@@ -95,6 +96,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_k,      incnmaster,     {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_j,      incnmaster,     {.i = -1 } },
+	{ MODKEY|ControlMask,			XK_k,	   movestack,      {.i = -1 } },
+	{ MODKEY|ControlMask,			XK_j,	   movestack,      {.i = +1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,						XK_t,	   setlayout,	   {.v = &layouts[0]} },
