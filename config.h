@@ -44,13 +44,16 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 static const int attachbelow = 1;    /* 1 means attach after the currently active window */
 
-#include "gaplessgrid.c"
+#define FORCE_VSPLIT 1
+#include "nrowgrid.c"
+#include "fibonacci.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "",      tile },    /* first entry is default */
-	{ "󰋁",      gaplessgrid},    /* no layout function means floating behavior */
+	{ "󰋁",      nrowgrid},    /* no layout function means floating behavior */
 	{ "󰊓",      monocle },
 	{ "",		centeredmaster },
+	{ "󱪴",		dwindle },
 	{ NULL,		NULL },
 };
 
@@ -98,6 +101,7 @@ static const Key keys[] = {
 	{ MODKEY,						XK_g,	   setlayout,	   {.v = &layouts[1]} },
 	{ MODKEY,					    XK_m,	   setlayout,	   {.v = &layouts[2]} },
 	{ MODKEY,						XK_c,	   setlayout,	   {.v = &layouts[3]} },
+	{ MODKEY,						XK_d,	   setlayout,	   {.v = &layouts[4]} },
 	{ 0, XF86XK_AudioMute, 					   spawn, 		   {.v = volmutecmd} },
 	{ 0, XF86XK_AudioLowerVolume, 			   spawn, 		   {.v = voldowncmd} },
 	{ 0, XF86XK_AudioRaiseVolume, 			   spawn, 		   {.v = volupcmd} },
